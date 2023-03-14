@@ -115,6 +115,11 @@ body{
     text-transform: capitalize;
 }
 
+.weatherBox img{
+    width: 100%
+
+}
+
 .weatherDetails{
     width: 100%;
     display: flex;
@@ -160,6 +165,8 @@ body{
     font-size: 10px;
     font-weight: 400;
 }
+
+
 
 .error404{
     width: 100%;
