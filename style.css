@@ -12,7 +12,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(25, 174, 204)
+    justify-items: center;
+
+
+    background: rgb(178, 235, 246)
 }
 
 .container{
@@ -24,6 +27,8 @@ body{
     border-radius: 16px;
     font-family: 'Roboto', sans-serif;
     transform: .4 ease-in-out;
+
+
 }
 
 
@@ -80,14 +85,14 @@ body{
     margin-left: 1rem;
 }
 
+
+
 .weatherBox{
+    width: 100%;
+    margin-top: 10px;
     text-align: center;
-}
+    justify-content: space-between;
 
-
-.weatherBox{
-    width: 60%;
-    margin-top: 20px;
 
 }
 
@@ -96,8 +101,9 @@ body{
     color: rgb(25, 174, 204);
     font-size: 3rem;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: .2rem;
     margin-left: -16px;
+   
 
 }
 .weatherBox .temperature span{
@@ -109,26 +115,25 @@ body{
 }
 
 .weatherBox .description{
-    color: #418fc0;
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 1.5rem;
     font-weight: 500;
     text-transform: capitalize;
+
 }
 
 .weatherBox img{
-    width: 100%
-
+    width: 75%;
 }
 
 .weatherDetails{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    
+    margin-top: .5rem;  
 }
 
-.weatherDetails .humidity, .weather-details .wind{
+.weatherDetails .humidity, .weatherDetails .wind{
     display: flex;
     align-items: center;
     width: 50%;
@@ -136,33 +141,33 @@ body{
 }
 
 .weatherDetails .humidity{
-    padding-left: 20px;
+    padding-left: 15px;
     justify-content:  flex-start;
 
 }
 
 .weatherDetails .wind{
-    padding-right: 20px;
+    padding-right: 15px;
     justify-content: flex-end;
 
 }
 
 .weatherDetails i{
-    color:rgb(25, 174, 204);
-    font-size: 16px;
+    color:rgb(239, 248, 249);
+    font-size: 1.5rem;
     margin-right: 10px;
     margin-top: 6px;
 }
 
 .weatherDetails span{
-    color: #418fc0;
+    color: #e0e4e6;
     font-size: 22px;
     font-weight: 400;
 }
 
 .weatherDetails p{
-    color: #418fc0;
-    font-size: 10px;
+    color: #e8edf0;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -183,7 +188,7 @@ body{
 }
 
 .error404 p{
-    color: #418fc0;
+    color: #dce2e6;
     font-size: 16px;
     font-weight: 400;
     margin-top: 12px;
@@ -206,3 +211,4 @@ body{
         opacity: 1;
     }
 }
+
