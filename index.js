@@ -3,16 +3,17 @@ const search = document.querySelector('.search');
 const weatherBox = document.querySelector('.weatherBox');
 const weatherDetails = document.querySelector('.weatherDetails');
 const error404 = document.querySelector('.error404');
-const city = document.querySelector('.search-box input')
+
 
 search.addEventListener('click', () => {
-    if(city == '') return;
+    const city = document.querySelector('.search-box input').value;
+    if(city == '') console.log("aqui");
     const api_key = 'db4fb461e79cd595e97ca58a9a551415';
         
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&`).then(response => response.json()).then(json => {
         
     if(json.cod == '404'){
-            console.log("entrei")
+            console.log(city)
             container.style.height = '400px'
             weatherBox.style.display = 'none';
             weatherDetails.style.display = 'none'
@@ -23,13 +24,13 @@ search.addEventListener('click', () => {
         };
 
         error404.style.display = 'none';
-        not-found.classList.remove('fadeIn');
+        error404.classList.remove('fadeIn');
 
         const image = document.querySelector('.weatherBox img');
         const temperature = document.querySelector('.weatherBox .temperature');
         const description = document.querySelector('.weatherBox .description');
-        const humidity = document.querySelector('.weatherBox .humidity');
-        const wind = document.querySelector('.weatherBox .wind span');
+        const humidity = document.querySelector('.weatherDetails .humiditylevel');
+        const wind = document.querySelector('.weatherDetails .wind span');
 
         switch(json.weather[0].main){
             case 'Clear':
@@ -37,19 +38,19 @@ search.addEventListener('click', () => {
                 break;
 
             case 'Rain':
-                image.src = 'images/clear.png';
+                image.src = 'images/rain.png';
                 break;
 
             case 'Snow':
-                image.src = 'images/clear.png';
+                image.src = 'images/haze.png';
                 break;
 
             case 'Clouds':
-                image.src = 'images/clear.png';
+                image.src = 'images/clouds.png';
                 break;
 
             case 'Haze':
-                image.src = 'images/clear.png';
+                image.src = 'images/haze.png';
                 break;
 
             case 'default':
@@ -57,7 +58,9 @@ search.addEventListener('click', () => {
                 break;
         }
 
-        temperature.innerHTML = `${parseInt(json.main.temp)}<span>C</span>`
+        console.log(json)
+
+        temperature.innerHTML = `${parseInt(json.main.temp-273.15)}<span>C</span>`
         description.innerHTML = `${json.weather[0].description}`;
         humidity.innerHTML = `${json.main.humidity}`;
         wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
@@ -66,7 +69,7 @@ search.addEventListener('click', () => {
         weatherDetails.style.display = '';
         weatherBox.classList.add('fadeIn')
         weatherDetails.classList.add('fadeIn');
-        container.style.height = '590px'
+        container.style.height = '400px'
     })
 })
 
